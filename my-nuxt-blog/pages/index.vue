@@ -24,10 +24,11 @@
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import Navbar from '~/components/Navbar.vue'
 
 export default {
   components: {
-    AppLogo
+    AppLogo,
   }
 }
 </script>
