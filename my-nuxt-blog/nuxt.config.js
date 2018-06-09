@@ -39,5 +39,7 @@ module.exports = {
     scrollBehavior: function (to, from, savePosition) {
       return { x: 0, y: 0}
     }
-  }
+  },
+  css:[{src:'element-ui/lib/theme-chalk/index.css'}],
+  plugins:[{src:'~plugins/element-ui', ssr:false}]
 }
