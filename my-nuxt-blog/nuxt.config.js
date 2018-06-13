@@ -13,6 +13,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  css:[{src:'element-ui/lib/theme-chalk/index.css'}],
   /*
   ** Customize the progress bar color
   */
@@ -33,13 +34,30 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    vendor: ['~/plugins/element-ui'],
+    loaders:[
+      {
+        test: /\.css$/,
+        loader: 'vue-style-loader!css-loader'
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        loader: 'url-loader',
+        query: {
+          limit: 1000, // 1KO
+          name: 'img/[name].[hash:7].[ext]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 1000, // 1 KO
+          name: 'fonts/[name].[hash:7].[ext]'
+        }
+      }
+    ],
   },
-  router: {
-    scrollBehavior: function (to, from, savePosition) {
-      return { x: 0, y: 0}
-    }
-  },
-  css:[{src:'element-ui/lib/theme-chalk/index.css'}],
-  plugins:[{src:'~plugins/element-ui', ssr:false}]
+  plugins:[{src:'~plugins/element-ui', ssr:true}],
 }

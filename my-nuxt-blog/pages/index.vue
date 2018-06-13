@@ -2,12 +2,7 @@
   <section class="container">
     <div>
       <navbar/>
-      <h1 class="title">
-        my-nuxt-blog
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
+      <div class="banner"></div>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -33,5 +28,12 @@ export default {
 </script>
 
 <style>
-
+ .banner {
+    height: 800px;
+    background: url(~assets/images/banner.jpg) no-repeat center top;
+    background-clip: border-box;
+    background-attachment: scroll;
+    background-size: cover;
+    z-index: 2;
+  }
 </style>
