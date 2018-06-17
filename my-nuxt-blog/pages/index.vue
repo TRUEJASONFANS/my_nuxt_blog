@@ -1,7 +1,15 @@
 <template>
   <section class="container">
-    <div>
-      <navbar/>
+    <div> 
+      <div class="navbar">
+        <h4 class="menu">
+          <nuxt-link to="/code">文章</nuxt-link>
+          <span >/</span>
+          <nuxt-link to="/think">照片</nuxt-link>
+          <span >/</span>
+          <nuxt-link to="/fuck">杂想</nuxt-link>
+        </h4>
+      </div>
       <div class="banner"></div>
       <div class="links">
         <a
@@ -18,22 +26,32 @@
 </template>
 
 <script>
-import Navbar from '~/components/Navbar.vue'
-
 export default {
-  components: {
-    Navbar
-  }
-}
+  scrollToTop: true,
+  transition: "fade"
+};
 </script>
-
-<style>
- .banner {
-    height: 800px;
-    background: url(~assets/images/banner.jpg) no-repeat center top;
-    background-clip: border-box;
-    background-attachment: scroll;
-    background-size: cover;
-    z-index: 2;
+<style lang="scss" scoped>
+.banner {
+  height: 800px;
+  background: url(~assets/images/banner.jpg) no-repeat center top;
+  background-clip: border-box;
+  background-attachment: scroll;
+  background-size: cover;
+  z-index: 2;
+}
+.navbar {
+  float: right;
+  margin-right: 30px;
+  color: #eee;
+  .menu {
+    span {
+      padding: .35rem;
+    }
   }
+  line-height: 38px;
+}
+h4 a {
+  color: white
+}
 </style>

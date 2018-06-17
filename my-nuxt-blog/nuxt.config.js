@@ -13,7 +13,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  css:[{src:'element-ui/lib/theme-chalk/index.css'}],
+  css:[{src:'element-ui/lib/theme-chalk/index.css',lang: 'scss'}],
   /*
   ** Customize the progress bar color
   */
@@ -40,6 +40,10 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'vue-style-loader!css-loader'
+      },
+      {
+        test:/\.scss$/,
+        loader:'style!css!sass'
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
