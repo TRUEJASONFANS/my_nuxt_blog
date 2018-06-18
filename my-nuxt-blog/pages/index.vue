@@ -41,8 +41,12 @@ export default {
   z-index: 2;
 }
 .navbar {
-  float: right;
-  margin-right: 30px;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  width: 300px;
+  margin-left: -150px;
+  text-align: center;
   color: #eee;
   .menu {
     span {
@@ -52,6 +56,7 @@ export default {
   line-height: 38px;
 }
 h4 a {
-  color: white
+  color: black;
+  font-size: 20px;
 }
 </style>
