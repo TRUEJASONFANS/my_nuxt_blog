@@ -16,7 +16,8 @@
     "element-ui": "^2.4.0",
     "node-sass": "^4.9.0",
     "nuxt": "^1.0.0",
-    "sass-loader": "^7.0.3"
+    "sass-loader": "^7.0.3",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
