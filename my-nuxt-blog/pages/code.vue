@@ -2,17 +2,17 @@
   <section  class="clearfix main">
     <div class="article">
 
-      <!-- <articleView
+      <articleView
         :articleList = "list"
         :haveMoreArt="haveMoreArt"
-        @loadMore="loadMore"></articleView> -->
+        @loadMore="loadMore"></articleView>
 
     </div>
   </section>
 </template>
 <script>
 
-// import articleView from '~/components/common/article'
+import articleView from '~/components/common/article'
 
 export default {
 
@@ -29,10 +29,6 @@ export default {
   },
 
   computed: {
-    mobileLayout () {
-      return this.$store.state.options.mobileLayout
-    },
-
     list () {
       return this.$store.state.article.art.list
     },

@@ -62,6 +62,10 @@ module.exports = {
         }
       }
     ],
+    styleResources: {
+      scss: ['./assets/scss/variable.scss', './assets/scss/mixin.scss'],
+      options: {}
+    }
   },
   plugins:[{src:'~plugins/element-ui', ssr:true}],
 }
