@@ -1,15 +1,6 @@
-// export const actions = {
-//   nuxtServerInit (store, {param, req}) {
-
-//   },
-//   async getArtList({ commit, state }, data = {}) {
-//     commit('article/FETCH_ART')
-//     //const res = await service.getArts(data).catch(err => console.error(err))
-//   }
-// }
-
 import Vue from "vue";
 import Vuex from "vuex";
+import service from "../api/";
 
 Vue.use(Vuex);
 
@@ -60,6 +51,24 @@ const store = () =>
 
       ADD_COMMENT(state) {
         state.article.details.meta.comments += 1;
+      }
+    },
+    actions: {
+      // 获取文章
+      async getArtList({ commit, state }, data = { current_page: 1 }) {
+        commit("article/FETCH_ART");
+        const res = await service
+          .getArts(data)
+          .catch(err => console.error(err));
+        if (res && res.code === 1) {
+          let list;
+          if (res.result.pagination.current_page === 1) list = res.result.list;
+          else list = [...state.article.art.list, ...res.result.list];
+          commit("article/SET_ART_SUCCESS", {
+            list,
+            pagination: res.result.pagination
+          });
+        } else commit("article/SET_ART_FAIL");
       }
     }
   });
