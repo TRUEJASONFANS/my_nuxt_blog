@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Navbar from '~/components/Header.vue'
+import Navbar from '~/components/Navbar.vue'
 
 export default {
   watch: {
@@ -23,29 +23,9 @@ export default {
       if (this.$store.state.visibleAffix) this.$store.commit('toggle', 'visibleAffix')
     }
   },
-  head() {
-    let canonical = `https://nuxtjs.org${this.$route.path}`
-    if (this.$store.state.locale !== 'en') {
-      canonical = `https://${this.$store.state.locale}.nuxtjs.org${this.$route.path}`
-    }
-    let link = [
-      { rel: 'canonical', href: canonical },
-      { rel: 'alternate', hreflang: 'en', href: `https://nuxtjs.org${this.$route.path}` },
-      { rel: 'alternate', hreflang: 'zh', href: `https://zh.nuxtjs.org${this.$route.path}` },
-      { rel: 'alternate', hreflang: 'ru', href: `https://ru.nuxtjs.org${this.$route.path}` },
-      { rel: 'alternate', hreflang: 'ja', href: `https://ja.nuxtjs.org${this.$route.path}` },
-      { rel: 'alternate', hreflang: 'ko', href: `https://ko.nuxtjs.org${this.$route.path}` },
-      { rel: 'alternate', hreflang: 'fr', href: `https://fr.nuxtjs.org${this.$route.path}` },
-      { rel: 'alternate', hreflang: 'id', href: `https://id.nuxtjs.org${this.$route.path}` }
-    ]
-    link.forEach((l) => {
-      if (l.href.slice(-1) !== '/') {
-        l.href = l.href + '/'
-      }
-    })
+  head() { // 配置 meta标签
     return {
-      htmlAttrs: { lang: this.$store.state.locale },
-      link
+      htmlAttrs: { lang: this.$store.state.locale }
     }
   },
   components: {
@@ -56,7 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 .App {
-  &--hidden {
+  &--hidden {// & is placeholder for parent selctor
     display: none;
     @media (min-width: 992px) {
       display: block;
