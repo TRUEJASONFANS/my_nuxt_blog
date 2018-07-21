@@ -16,7 +16,6 @@ const store = () =>
 
         // 列表文章
         art: {
-          pagination: {},
           list: []
         },
 
@@ -55,18 +54,18 @@ const store = () =>
     },
     actions: {
       // 获取文章
-      async getArtList({ commit, state }, data = { current_page: 1 }) {
+      async getArtList({ commit, state }) {
         commit("article/FETCH_ART");
         const res = await service
-          .getArts(data)
+          .getArts()
           .catch(err => console.error(err));
         if (res && res.code === 1) {
           let list;
-          if (res.result.pagination.current_page === 1) list = res.result.list;
-          else list = [...state.article.art.list, ...res.result.list];
+          list = [...state.article.art.list, res];
+          console.log(list)
           commit("article/SET_ART_SUCCESS", {
             list,
-            pagination: res.result.pagination
+            pagination: 1
           });
         } else commit("article/SET_ART_FAIL");
       }

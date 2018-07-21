@@ -4,7 +4,6 @@
 
       <articleView
         :articleList = "list"
-        :haveMoreArt="haveMoreArt"
         @loadMore="loadMore"></articleView>
 
     </div>
@@ -21,7 +20,7 @@ export default {
   transition: 'fade',
 
   fetch ({ store }) {
-    return store.dispatch('getArtList', { type: 1 })
+    return store.dispatch('getArtList')
   },
 
   data () {
@@ -31,10 +30,6 @@ export default {
   computed: {
     list () {
       return this.$store.state.article.art.list
-    },
-
-    banners () {
-      return this.list.slice(0, 9)
     },
 
     haveMoreArt () {
@@ -49,10 +44,7 @@ export default {
 
   methods: {
     loadMore () {
-      this.$store.dispatch('getArtList', {
-        current_page: this.$store.state.article.art.pagination.current_page + 1,
-        type: 1
-      })
+      this.$store.dispatch('getArtList')
     }
   }
 }

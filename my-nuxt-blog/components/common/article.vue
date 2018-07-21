@@ -1,5 +1,5 @@
 <template>
-  <transition-group tag="div" name="slide-down" class="article-box" :class="{'mobile': mobileLayout}">
+  <transition-group tag="div" name="slide-down" class="article-box">
     <div class="article-item" v-for="item in articleList" :key="item._id" >
       <div class="content">
         <p class="title"><nuxt-link :to="`/article/${item._id}`"></nuxt-link></p>
@@ -20,20 +20,20 @@
       </div>
       <span class="article-line"></span>
     </div>
-  <div class="end-article" v-if="!havaMoreArt" key="-1">
+  <!-- <div class="end-article" v-if="!havaMoreArt" key="-1">
     <i>end</i>
-  </div>
-   <div class="loading-more end-article " v-if="haveMoreArt" key="-2">
+  </div> -->
+   <!-- <div class="loading-more end-article " v-if="haveMoreArt" key="-2">
         <a href="javascript:;" @click="$emit('loadMore')" v-if="!fetch" class="allow"><i>more</i></a>
         <a href="javascript:;" v-if="fetch" class="not-allow"><i>loading...</i></a>
-  </div>
+  </div> -->
   </transition-group>
 </template>
 
 <script>
 export default {
   name: "article-box",
-  props: ["articleList", "haveMoreArt"],
+  props: ["articleList"],
   computed: {
     fetch() {
       return this.$store.state.article.fetch;

@@ -2,7 +2,7 @@ import ax from './axios'
 
 // 获取文章列表
 export function getArts (params) {
-  return ax.get('/article', { params })
+  return ax.get('/arts')
           .then(res => res.data)
 }
 
