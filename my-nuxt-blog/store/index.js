@@ -55,19 +55,18 @@ const store = () =>
     actions: {
       // 获取文章
       async getArtList({ commit, state }) {
-        commit("article/FETCH_ART");
+        commit("FETCH_ART");
         const res = await service
           .getArts()
           .catch(err => console.error(err));
         if (res && res.code === 1) {
           let list;
-          list = [...state.article.art.list, res];
-          console.log(list)
-          commit("article/SET_ART_SUCCESS", {
-            list,
-            pagination: 1
+          list = [...state.article.art.list, ...res.data];
+          commit("SET_ART_SUCCESS", {
+            list
           });
-        } else commit("article/SET_ART_FAIL");
+          // console.log("xx"+ state.article.art)
+        } else commit("SET_ART_FAIL");
       }
     }
   });

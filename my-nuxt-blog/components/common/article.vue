@@ -1,32 +1,15 @@
 <template>
   <transition-group tag="div" name="slide-down" class="article-box">
-    <div class="article-item" v-for="item in articleList" :key="item._id" >
-      <div class="content">
-        <p class="title"><nuxt-link :to="`/article/${item._id}`"></nuxt-link></p>
-        <p class="abstrack">{{ item.descript | text(200)}}</p>
-        <div class="meta">
-          <span class="time">
-            {{
-              item.create_at | dateFormat('yyyy.MM.dd')
-            }}
-          </span>
-          <span class="hr"></span>
-          <span class="read"> {{ item.meta.views }} 次阅读</span>
-          <span class="hr"></span>
-          <span class="comments"> {{ item.meta.comments }} 条评论</span>
-          <span class="hr"></span>
-          <span class="like"> {{ item.meta.likes }} 人喜欢</span>
-        </div>
-      </div>
+    <div
+        class="article-item"
+        v-for="item in articleList"
+        :key="item._id">
+        <p class="title"><nuxt-link :to="`/article/${item._id}`">{{ item.article_name }}</nuxt-link></p>
       <span class="article-line"></span>
     </div>
-  <!-- <div class="end-article" v-if="!havaMoreArt" key="-1">
-    <i>end</i>
-  </div> -->
-   <!-- <div class="loading-more end-article " v-if="haveMoreArt" key="-2">
-        <a href="javascript:;" @click="$emit('loadMore')" v-if="!fetch" class="allow"><i>more</i></a>
-        <a href="javascript:;" v-if="fetch" class="not-allow"><i>loading...</i></a>
-  </div> -->
+  <div class="end-article" v-if="!havaMoreArt" key="-1">
+    end
+  </div>
   </transition-group>
 </template>
 
@@ -106,7 +89,7 @@ export default {
     }
   }
 
-   .end-article {
+  .end-article {
     padding: $md-pad 0;
     color: $black;
   }

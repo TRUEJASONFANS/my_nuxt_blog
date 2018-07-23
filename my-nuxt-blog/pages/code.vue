@@ -30,11 +30,6 @@ export default {
   computed: {
     list () {
       return this.$store.state.article.art.list
-    },
-
-    haveMoreArt () {
-      return this.$store.state.article.art.pagination.current_page
-              !== this.$store.state.article.art.pagination.total_page
     }
   },
 
