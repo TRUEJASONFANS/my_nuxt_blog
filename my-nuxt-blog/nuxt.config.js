@@ -38,6 +38,9 @@ module.exports = {
     vendor: ['~/plugins/element-ui'],
     loaders:[
       {
+        test: /\.js$/, use: 'babel-loader', exclude: /node_modules/
+      },
+      {
         test: /\.css$/,
         loader: 'vue-style-loader!css-loader'
       },

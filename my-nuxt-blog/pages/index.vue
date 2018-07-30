@@ -8,6 +8,8 @@
           <nuxt-link to="/think">照片</nuxt-link>
           <span >/</span>
           <nuxt-link to="/fuck">杂想</nuxt-link>
+          <span >/</span>
+          <nuxt-link to="/lovingfish">可爱的小鱼</nuxt-link>
         </h4>
       </div>
       <div class="banner"></div>
@@ -34,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 .banner {
   height: 800px;
-  background: url(~assets/images/banner.jpg) no-repeat center top;
+  background: url(~static/images/banner.jpg) no-repeat center top;
   background-clip: border-box;
   background-attachment: scroll;
   background-size: cover;
