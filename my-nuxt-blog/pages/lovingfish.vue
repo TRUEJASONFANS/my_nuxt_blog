@@ -22,8 +22,16 @@
 </template>
 
 <script>
+
 export default {
-  
+  data: function () {
+		return {
+			drawed : false
+		}
+	},
+	mounted: function() {
+		drawed: true
+	}
 };
 </script>
 
@@ -52,6 +60,6 @@ export default {
 			position: absolute;
 			bottom: 0;
 			left: 0;
-			z-index: 0;//画布分层，z-index越低，越显示在前面
+			z-index: 0;
 		}
 </style>
