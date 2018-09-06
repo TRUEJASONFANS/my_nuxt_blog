@@ -9,7 +9,7 @@
           <span >/</span>
           <nuxt-link to="/fuck">杂想</nuxt-link>
           <span >/</span>
-          <nuxt-link to="/lovingfish">可爱的小鱼</nuxt-link>
+          <a href="/tiny_fish.html">可爱的小鱼</a>
         </h4>
       </div>
       <div class="banner"></div>
